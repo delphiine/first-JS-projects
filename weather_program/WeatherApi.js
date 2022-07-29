@@ -3,14 +3,15 @@ const apiKey = require('./apiKey.js')
 
 class WeatherApi {
 
-    fetchWeatherData (city) {
+    fetchWeatherData (city, callbackFunction) {
         let weatherData = null;
         const apiUrl = `http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${apiKey}`;
         got(apiUrl).then((response) => {
             weatherData = JSON.parse(response.body);
-            console.log(weatherData);
+            callbackFunction(weatherData)
         });
         
+        this.weatherData = weatherData
         console.log('Requesting weather data');
     }
 }
