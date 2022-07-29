@@ -61,4 +61,26 @@ describe('Thermostat', () => {
         thermostat.reset()
         expect(thermostat.getTemperature()).toEqual(20);
     });
+
+    it("returns 'low-usage' if the temperature is under 18 degrees", () => {
+        const thermostat = new Thermostat();
+        for (let i = 5; i > 0 ; i--) {
+            thermostat.down();
+        }
+        expect(thermostat.currentEnergyUsage()).toEqual("low-usage")
+    })
+
+    it("returns 'mideum-usage' if the temperature is less or equal to 25", () => {
+        const thermostat = new Thermostat();
+        expect(thermostat.currentEnergyUsage()).toEqual("medium-usage")
+    })
+
+    it("returns 'high-usage' if the temperature is above 25", () => {
+        const thermostat = new Thermostat();
+        thermostat.setPowerSavingMode()
+        for (let i = 0 ; i < 7 ; i++) {
+            thermostat.up();
+        }
+        expect(thermostat.currentEnergyUsage()).toEqual("high-usage")
+    })
 });
