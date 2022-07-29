@@ -11,6 +11,7 @@ class Weather {
       this.weatherData = weatherData;
     })
   }
+
   getWeatherData () {
     return this.weatherData;
   }
