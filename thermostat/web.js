@@ -5,7 +5,7 @@ const app = express()
 const port = 3000
 
 app.get('/temperature', (req, res) => {
-    res.send(JSON.stringify(thermostat));
+  res.send(JSON.stringify(thermostat));
 });
 
 app.post('/up', (req, res) => {
@@ -14,8 +14,8 @@ app.post('/up', (req, res) => {
 });
 
 app.post('/down', (req, res) => {
-    thermostat.down();
-    res.send(JSON.stringify(thermostat));
+  thermostat.down();
+  res.send(JSON.stringify(thermostat));
 });
 
 app.delete('/temperature', (req, res) => {
@@ -25,8 +25,8 @@ app.delete('/temperature', (req, res) => {
 
 // turns on the power saving mode if it's off and vice versa
 app.post('/power-saving', (req, res) => {
-    thermostat.setPowerSavingMode();
-    res.send(JSON.stringify(thermostat));
+  thermostat.setPowerSavingMode();
+  res.send(JSON.stringify(thermostat));
 });
 
 

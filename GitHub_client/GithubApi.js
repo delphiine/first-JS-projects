@@ -1,18 +1,18 @@
 const got = require('got')
 
 class GithubApi {
-
-    constructor() {
-        this.apiGit = 'https://api.github.com/repos/';
-    }
+  
+  constructor() {
+    this.apiGit = 'https://api.github.com/repos/';
+  }
     
-    fetchRepositoryData(path, callbackFunction) {
-		let url = this.apiGit + path;
-		got(url)
-		.then((response) => {
-			callbackFunction(JSON.parse(response.body));
-		});
-	}
+  fetchRepositoryData(path, callbackFunction) {
+	let url = this.apiGit + path;
+	got(url)
+	.then((response) => {
+		callbackFunction(JSON.parse(response.body));
+	});
+  }
 
 }
 
